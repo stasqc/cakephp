@@ -65,7 +65,7 @@
  *
  * flags =>
  * A key/value array of driver specific connection options.
- */
+ *
 class DATABASE_CONFIG {
 
 	public $default = array(
@@ -89,4 +89,48 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+}
+*/
+class DATABASE_CONFIG {
+        public $default = array(
+                'datasource' => 'Database/Mysql',
+                'persistent' => false,
+                'host'       => '',
+                'port'       => '',
+                'login'      => '',
+                'password'   => '',
+                'database'   => '',
+                'prefix'     => '',
+                //'encoding' => 'utf8',
+        );
+        public $test = array(
+                'datasource' => 'Database/Mysql',
+                'persistent' => false,
+                'host'       => '',
+		'port'       => '',
+                'login'      => '',
+                'password'   => '',
+                'database'   => 'test_database',
+                'prefix'     => '',
+                //'encoding' => 'utf8',
+        );
+	public function __construct() {
+               if (getenv("OPENSHIFT_MYSQL_DB_HOST")):
+	           $this->default['host']       = getenv("OPENSHIFT_MYSQL_DB_HOST");
+	           $this->default['port']       = getenv("OPENSHIFT_MYSQL_DB_PORT");
+	           $this->default['login']      = getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+	           $this->default['password']   = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+	           $this->default['database']   = getenv("OPENSHIFT_APP_NAME");
+	           $this->default['datasource'] = 'Database/Mysql';
+	           $this->test['datasource']    = 'Database/Mysql';
+	       else:
+	           $this->default['host']       = getenv("OPENSHIFT_POSTGRESQL_DB_HOST");
+	           $this->default['port']       = getenv("OPENSHIFT_POSTGRESQL_DB_PORT");
+	           $this->default['login']      = getenv("OPENSHIFT_POSTGRESQL_DB_USERNAME");
+	           $this->default['password']   = getenv("OPENSHIFT_POSTGRESQL_DB_PASSWORD");
+	           $this->default['database']   = getenv("OPENSHIFT_APP_NAME");
+	           $this->default['datasource'] = 'Database/Postgres';
+	           $this->test['datasource']    = 'Database/Postgres';
+	       endif;
+	}
 }
