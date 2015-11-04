@@ -65,7 +65,7 @@
                           {
                                         echo $this->Html->link(__('Edit'), array('action' => 'edit', $book['Book']['id']), array('class' => 'btn btn-default btn-xs')); 
                                         echo " ";
-                                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $book['Book']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', $book['Book']['id']));
+                                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $book['Book']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete %s?', $book['Book']['title']));
                           }
                     
                     ?>
