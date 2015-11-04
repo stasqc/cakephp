@@ -34,6 +34,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+        <?php
+      echo $this->Html->css('https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
+    ?>
 </head>
 <body>
 	<div id="container">
@@ -58,6 +61,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			</p>
 		</div>
 	</div>
+    <?php 
+    echo $scripts_for_layout;?>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

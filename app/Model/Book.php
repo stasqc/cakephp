@@ -17,12 +17,48 @@ class Book extends AppModel {
  */
 	public $displayField = 'title';
         public $uploadDir = "uploads";
-
+        
+        //Trouver les noms des auteurs pour auto complete
+        public function getAuthorNames ($term = null) {
+            if(!empty($term)) {
+              $authors = $this->Author->find('list', array(
+                'conditions' => array(
+                  'name LIKE' => trim($term) . '%'
+                )
+              ));
+              return $authors;
+            }
+            return false;
+          }
+          
+          //Trouver le id d'auteur qui correspond au nom
+          public function getAuthorID($name = null)
+          {
+              if(!empty($name))
+              {
+                  $authorID = $this->Author->find('first', 
+                          array('conditions' => array('name' => $name)));
+                  return $authorID['Author']['id'];
+              }
+              return false;
+          }
+          
+          //L'inverse de la fonction ci-haut pour le edit
+          public function getAuthorName($id = null)
+          {
+              if(!empty($id))
+              {
+                  $authorName = $this->Author->find('first', array('conditions' => array('id' => $id)));
+                  return $authorName['Author']['name'];
+              }
+              return false;
+          }
 /**
  * Validation rules
  *
  * @var array
  */
+        
 	public $validate = array(
 		'isbn' => array(
 			'notBlank' => array(

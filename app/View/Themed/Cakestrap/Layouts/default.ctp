@@ -40,6 +40,9 @@
 			
 			echo $this->fetch('script');
 		?>
+                    <?php
+      echo $this->Html->css('https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
+    ?>
 	</head>
 
 	<body>
@@ -78,7 +81,8 @@
 			</div><!-- /#footer .container -->
 			
 		</div><!-- /#main-container -->
-		
+		    <?php 
+    echo $scripts_for_layout;?>
 		<div class="container">
 			<div class="well well-sm">
 				<small>

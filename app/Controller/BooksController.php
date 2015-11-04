@@ -16,7 +16,8 @@ class BooksController extends AppController {
     
 
     
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'RequestHandler');
+       // public $layout = 'defaultjquery';
         
         //beforeFilter pour donner le droit a index seulement!
         public function beforeFilter()
@@ -60,8 +61,18 @@ class BooksController extends AppController {
  * @return void
  */
 	public function add() {
+            
+          
+               
+            
+            
 		if ($this->request->is('post')) {
 			$this->Book->create();
+                        //À cause de la modification JQuery autocomplete, il faut
+                        //aller prendre la corréspondance nom-id
+                        $nameAuthor = $this->request->data['Book']['authorName'];
+                        $idAuthor = $this->Book->getAuthorID($nameAuthor);
+                        $this->request->data['Book']['author_id'] = $idAuthor;                        
 			if ($this->Book->save($this->request->data)) {
 				$this->Session->setFlash(__('The book has been saved'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -75,6 +86,13 @@ class BooksController extends AppController {
                 $this->Book->recursive = 1;
 		$users = $this->Book->User->find('list');
 		$this->set(compact('authors', 'covers', 'categories', 'users'));
+                
+                 if ($this->request->is('ajax')) {
+                  $term = $this->request->query('term');
+                  $authorNames = $this->Book->getAuthorNames($term);
+                  $this->set(compact('authorNames'));
+                  $this->set('_serialize', 'authorNames');
+                }
 	}
 
         public function search()
@@ -103,9 +121,20 @@ class BooksController extends AppController {
  */
 	public function edit($id = null) {
         $this->Book->id = $id;
+                        if ($this->request->is('ajax')) {
+                  $term = $this->request->query('term');
+                  $authorNames = $this->Book->getAuthorNames($term);
+                  $this->set(compact('authorNames'));
+                  $this->set('_serialize', 'authorNames');
+
+                }
+        
 		if (!$this->Book->exists($id)) {
 			throw new NotFoundException(__('Invalid book'));
 		}
+
+                
+                
 		if ($this->request->is('post') || $this->request->is('put')) {
                     $data = $this->request->data['Book'];
                     if (!$data['filename']['name']){
@@ -122,10 +151,15 @@ class BooksController extends AppController {
 			$this->request->data = $this->Book->find('first', $options);
 		}
 		$authors = $this->Book->Author->find('list');
+                $theAuthor = $this->Book->Author->find('first');
+                $theAuthor = $theAuthor['Author']['name'];
 		$covers = $this->Book->Cover->find('list');
 		$categories = $this->Book->Category->find('list');
 		$users = $this->Book->User->find('list');
 		$this->set(compact('authors', 'covers', 'categories', 'users'));
+                $this->set('theAuthor', $theAuthor);
+                
+                 
 	}
 
 /**
