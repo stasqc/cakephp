@@ -32,7 +32,7 @@
 						<?php echo $this->Form->input('datePublication', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
                                         <div class="form-group">
-						<?php echo $this->Form->input('authorName', array('type' => 'text', 'class' => 'form-control', 'id' => 'autocomplete', 'value' => $theAuthor)); ?>
+						<?php echo $this->Form->input('author_id', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
 					<div class="form-group">
 						<?php echo $this->Form->input('cover_id', array('class' => 'form-control')); ?>
