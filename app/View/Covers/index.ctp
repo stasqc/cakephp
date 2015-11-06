@@ -13,17 +13,19 @@
 					<thead>
 						<tr>
 							<th><?php echo $this->Paginator->sort('type'); ?></th>
-							<th class="actions"><?php echo __('Actions'); ?></th>
+							<th class="actions"><?php echo __('General type'); ?></th>
+                                                        <th class="actions"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>
 <?php foreach ($covers as $cover): ?>
 	<tr>
 		<td><?php echo h($cover['Cover']['type']); ?>&nbsp;</td>
+		<td><?php echo h($cover['Overcover']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cover['Cover']['id']), array('class' => 'btn btn-default btn-xs')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cover['Cover']['id']), array('class' => 'btn btn-default btn-xs')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cover['Cover']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', $cover['Cover']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cover['Cover']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete %s?', $cover['Cover']['type'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

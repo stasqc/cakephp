@@ -18,6 +18,9 @@
 					<div class="form-group">
 						<?php echo $this->Form->input('type', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
+					<div class="form-group">
+						<?php echo $this->Form->input('overcover_id', array('class' => 'form-control')); ?>
+					</div><!-- .form-group -->
 
 					<?php echo $this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>
 

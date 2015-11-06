@@ -29,6 +29,9 @@
 						<?php echo $this->Form->input('authorName', array('type' => 'text', 'class' => 'form-control', 'id' => 'autocomplete')); ?>
 					</div><!-- .form-group -->
 					<div class="form-group">
+						<?php echo $this->Form->input('overcovers', array('class' => 'form-control')); ?>
+					</div><!-- .form-group -->
+					<div class="form-group">
 						<?php echo $this->Form->input('cover_id', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
 					<div class="form-group">
@@ -49,3 +52,20 @@
 	</div><!-- /#page-content .col-sm-9 -->
 
 </div><!-- /#page-container .row-fluid -->
+
+<?php
+$this->Js->get('#BookOvercovers')->event('change', $this->Js->request(array(
+            'controller' => 'covers',
+            'action' => 'getByOverCover'
+                ), array(
+            'update' => '#BookCoverId',
+            'async' => true,
+            'method' => 'post',
+            'dataExpression' => true,
+            'data' => $this->Js->serializeForm(array(
+                'isForm' => true,
+                'inline' => true
+            ))
+        ))
+);
+?>

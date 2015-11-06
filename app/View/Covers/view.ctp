@@ -40,13 +40,17 @@
 			<?php echo h($cover['Cover']['type']); ?>
 			&nbsp;
 		</td>
+</tr><tr>		<td><strong><?php echo __('Overcover'); ?></strong></td>
+		<td>
+			<?php echo h($cover['Overcover']['name']); ?>
+			&nbsp;
+		</td>
 </tr>					</tbody>
 				</table><!-- /.table table-striped table-bordered -->
 			</div><!-- /.table-responsive -->
 			
 		</div><!-- /.view -->
 
-					
 
 			
 	</div><!-- /#page-content .span9 -->

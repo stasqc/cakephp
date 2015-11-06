@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
  * @property User $User
  */
 class Book extends AppModel {
+    public $helpers = array('Js');
 
 /**
  * Display field

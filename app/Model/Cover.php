@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Cover Model
  *
+ * @property Overcover $Overcover
  * @property Book $Book
  */
 class Cover extends AppModel {
@@ -27,16 +28,25 @@ class Cover extends AppModel {
 				'allowEmpty' => false,
 				'required' => true
 			),
-			'alphaNumeric' => array(
-				'rule' => array('alphaNumeric'),
-				'message' => 'Only alphanumeric characters allowed',
-				'allowEmpty' => false,
-                                'required' => true
-			),
 		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
+		'Overcover' => array(
+			'className' => 'Overcover',
+			'foreignKey' => 'overcover_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations

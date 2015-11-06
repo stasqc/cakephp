@@ -55,6 +55,8 @@ class CoversController extends AppController {
 				$this->Session->setFlash(__('The cover could not be saved. Please, try again.'), 'flash/error');
 			}
 		}
+		$overcovers = $this->Cover->Overcover->find('list');
+		$this->set(compact('overcovers'));
 	}
 
 /**
@@ -80,6 +82,8 @@ class CoversController extends AppController {
 			$options = array('conditions' => array('Cover.' . $this->Cover->primaryKey => $id));
 			$this->request->data = $this->Cover->find('first', $options);
 		}
+		$overcovers = $this->Cover->Overcover->find('list');
+		$this->set(compact('overcovers'));
 	}
 
 /**
@@ -98,7 +102,7 @@ class CoversController extends AppController {
 		if (!$this->Cover->exists()) {
 			throw new NotFoundException(__('Invalid cover'));
 		}
-                //À insérer la validation ici
+		//À insérer la validation ici
                         $options['joins'] = array(
                           array(
                               'table' => 'books',
@@ -125,18 +129,20 @@ class CoversController extends AppController {
                             $this->Session->setFlash(__('Cover was not deleted'), 'flash/error');
                             $this->redirect(array('action' => 'index'));
                         }
-                
-                
-                
-                
-                
-                
-
 	}
-        
-        
-        //Personne ne peut voir les covers apart admin
+	
+		        //Personne ne peut voir les covers apart admin
         public function beforeFilter() {
             $this->Auth->deny('index');
+        }
+        
+        //Pour avoir les données de AJAX
+        public function getByOverCover()
+        {
+            $overcover_id = $this->request->data['Book']['overcovers'];
+            $covers = $this->Cover->find('list', array('conditions' => 
+                array('Cover.overcover_id' => $overcover_id), 'recursive' => -1));
+            $this->set('covers', $covers);
+            $this->layout = 'ajax';
         }
 }

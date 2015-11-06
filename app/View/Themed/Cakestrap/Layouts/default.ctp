@@ -83,6 +83,10 @@
 		</div><!-- /#main-container -->
 		    <?php 
     echo $scripts_for_layout;?>
+        <?php
+if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) echo $this->Js->writeBuffer();
+// Writes cached scripts
+?>
 		<div class="container">
 			<div class="well well-sm">
 				<small>

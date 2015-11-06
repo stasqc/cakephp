@@ -63,7 +63,8 @@ class BooksController extends AppController {
 	public function add() {
             
           
-               
+               $overcover_id = $this->Book->Cover->Overcover->find('list');
+               $this->set('overcovers', $overcover_id);
             
             
 		if ($this->request->is('post')) {
@@ -120,6 +121,10 @@ class BooksController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+               $overcover_id = $this->Book->Cover->Overcover->find('list');
+               $this->set('overcovers', $overcover_id);
+            
+            
         $this->Book->id = $id;
                         if ($this->request->is('ajax')) {
                   $term = $this->request->query('term');
