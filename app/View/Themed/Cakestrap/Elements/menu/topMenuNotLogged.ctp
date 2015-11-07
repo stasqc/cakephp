@@ -34,6 +34,7 @@
                                         ?>
                                </ul>
                        </li>
+                       <li><?php echo $this->Html->Link(__('About'), array('controller' => 'Users', 'action' => 'about'), array('class' => 'navbar-brand')); ?></li
 		</ul><!-- /.nav navbar-nav -->
 	</div><!-- /.navbar-collapse -->
 </nav><!-- /.navbar navbar-default -->

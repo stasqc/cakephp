@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2015 at 11:48 PM
+-- Generation Time: Nov 07, 2015 at 11:48 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.12
 
@@ -62,21 +62,22 @@ CREATE TABLE IF NOT EXISTS `books` (
   UNIQUE KEY `isbn_UNIQUE` (`isbn`),
   KEY `fk_book_author1_idx` (`author_id`),
   KEY `fk_book_cover1_idx` (`cover_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `books`
 --
 
 INSERT INTO `books` (`id`, `isbn`, `title`, `datePublication`, `filename`, `author_id`, `cover_id`) VALUES
-(2, '12314567890', 'Something', '2015-02-14', NULL, 1, 1),
-(3, '1111111111112', 'The Two Towers', '2015-09-30', NULL, 1, 1),
+(2, '12314567890', 'Something', '2015-02-14', NULL, 1, 3),
+(3, '1111111111112', 'The Two Towers', '2015-09-30', NULL, 1, 4),
 (4, '1111111111113', 'Game of Thrones I', '2015-09-30', NULL, 3, 1),
 (7, '0261102354', 'The Fellowship of the Ring', '2007-04-17', 'uploads/fellowship.jpg', 1, 1),
 (8, '0261102737', 'The Silmarillion', '2007-08-01', 'uploads/silmar.jpg', 1, 1),
 (9, '0007309368', 'Children of Hurin', '2010-11-15', 'uploads/childrenofhurin.jpg', 1, 2),
 (10, '0618126996', 'Atlas of Middle-Earth', '2000-10-04', 'uploads/atlas.jpg', 1, 1),
-(12, '3333333333330', 'Testing autocomplete', '2015-11-04', 'uploads/imagedragon.jpg', 5, 1);
+(12, '3333333333330', 'Testing autocomplete', '2015-11-04', 'uploads/imagedragon.jpg', 5, 1),
+(13, '8888888888888', 'Testing new cover', '2015-11-06', 'uploads/martian.jpg', 5, 4);
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `books_categories` (
   PRIMARY KEY (`id`),
   KEY `fk_book_categories_books1_idx` (`book_id`),
   KEY `fk_book_categories_categories1_idx` (`category_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `books_categories`
@@ -115,7 +116,9 @@ INSERT INTO `books_categories` (`id`, `book_id`, `category_id`) VALUES
 (28, 10, 4),
 (29, 10, 5),
 (31, 12, 1),
-(32, 12, 3);
+(32, 12, 3),
+(33, 13, 3),
+(34, 13, 4);
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `books_users` (
   PRIMARY KEY (`id`),
   KEY `fk_reservation_user1_idx` (`user_id`),
   KEY `fk_reservation_book1_idx` (`book_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `books_users`
@@ -140,7 +143,9 @@ INSERT INTO `books_users` (`id`, `user_id`, `book_id`) VALUES
 (3, 2, 3),
 (4, 5, 2),
 (5, 2, 4),
-(6, 2, 7);
+(6, 2, 7),
+(7, 2, 12),
+(8, 13, 9);
 
 -- --------------------------------------------------------
 
@@ -181,16 +186,39 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `covers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
+  `overcover_id` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `covers`
 --
 
-INSERT INTO `covers` (`id`, `type`) VALUES
-(1, 'Hardcover'),
-(2, 'Softcover');
+INSERT INTO `covers` (`id`, `type`, `overcover_id`) VALUES
+(1, 'Hardcover', 2),
+(2, 'Softcover', 1),
+(3, 'Mass market paperback', 1),
+(4, 'Library binding', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `overcovers`
+--
+
+CREATE TABLE IF NOT EXISTS `overcovers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `overcovers`
+--
+
+INSERT INTO `overcovers` (`id`, `name`) VALUES
+(1, 'Soft'),
+(2, 'Hard');
 
 -- --------------------------------------------------------
 
@@ -206,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `books_users_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_reservations_books_users1_idx` (`books_users_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `reservations`
@@ -216,7 +244,9 @@ INSERT INTO `reservations` (`id`, `dateTaken`, `dateDue`, `dateReturned`, `books
 (3, '2015-10-04', '2015-10-18', NULL, 3),
 (4, '2015-10-04', '2015-10-18', NULL, 4),
 (5, '2015-10-04', '2015-10-18', NULL, 5),
-(6, '2015-10-12', '2015-10-26', NULL, 6);
+(6, '2015-10-12', '2015-10-26', NULL, 6),
+(7, '2015-11-07', '2015-11-21', NULL, 7),
+(8, '2015-11-07', '2015-11-21', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -232,18 +262,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phoneNumber` varchar(45) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(45) NOT NULL,
+  `authorized` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `name`, `phoneNumber`, `password`, `role`) VALUES
-(1, 'Admin', 'admin@hotmail.com', 'Stan', '514-514-5145', '$2a$10$vPsfXW5phydYmRXScgrkBOBMq.1phfIj/TqYvSj.Ksi.AX61j4pna', 'Admin'),
-(2, 'NotAdmin', 'notAdmin@hotmail.com', 'Someone', '514-514-5145', '$2a$10$FuvFI2C.s1FCwqE7NeWsa.uzLo8ksVa7sHsBxu/dQsWnXRUDqtC8u', 'User'),
-(3, 'TestingUser', 'something@hotmail.com', 'Tester A', '(514)-514-5145', '$2a$10$oBfs/FR.n5UUrxIfSnELuOXyHPnjRMrFdoxl2eP8ITnNhydBC6eMa', 'Admin'),
-(5, 'NotAdmin2', 'notadmin2@hotmail.com', 'Not Admin', '5145145145', '$2a$10$zRmIS7JXauPnLjw/UB1kGuas1IB5TNVcCEPFCA8QqEbmLXih4PEFm', 'User');
+INSERT INTO `users` (`id`, `username`, `email`, `name`, `phoneNumber`, `password`, `role`, `authorized`) VALUES
+(1, 'Admin', 'admin@hotmail.com', 'Stan', '514-514-5145', '$2a$10$vPsfXW5phydYmRXScgrkBOBMq.1phfIj/TqYvSj.Ksi.AX61j4pna', 'Admin', 1),
+(2, 'NotAdmin', 'notAdmin@hotmail.com', 'Someone', '514-514-5145', '$2a$10$FuvFI2C.s1FCwqE7NeWsa.uzLo8ksVa7sHsBxu/dQsWnXRUDqtC8u', 'User', 1),
+(3, 'TestingUser', 'something@hotmail.com', 'Tester A', '(514)-514-5145', '$2a$10$oBfs/FR.n5UUrxIfSnELuOXyHPnjRMrFdoxl2eP8ITnNhydBC6eMa', 'Admin', 1),
+(5, 'NotAdmin2', 'notadmin2@hotmail.com', 'Not Admin', '5145145145', '$2a$10$zRmIS7JXauPnLjw/UB1kGuas1IB5TNVcCEPFCA8QqEbmLXih4PEFm', 'User', 0),
+(13, 'testingUserMail', 'gererstages@gmail.com', 'Stan', '5145145145', '$2a$10$T7PgaHchBDn8TyjkqeytKOFpfWP1vqwXLFJh58Nkz03OZZNhCNP4m', 'User', 1);
 
 --
 -- Constraints for dumped tables

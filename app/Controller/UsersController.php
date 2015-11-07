@@ -18,8 +18,10 @@ class UsersController extends AppController {
         //beforeFilter - seulement le droit de faire add si pas enregistré
         public function beforeFilter()
         {
-            $this->Auth->allow('login', 'logout', 'add', 'activate', 'resend');  
+            $this->Auth->allow('login', 'logout', 'add', 'activate', 'resend', 'about');  
         }
+        
+        public function about(){}
         
         //Fonction login - si login marche, redirect URL (dans app controller)
        public function login() {
