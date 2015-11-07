@@ -18,13 +18,18 @@ class UsersController extends AppController {
         //beforeFilter - seulement le droit de faire add si pas enregistré
         public function beforeFilter()
         {
-            $this->Auth->allow('login', 'logout', 'add');  
+            $this->Auth->allow('login', 'logout', 'add', 'activate', 'resend');  
         }
         
         //Fonction login - si login marche, redirect URL (dans app controller)
        public function login() {
         if ($this->request->is('post')) {
                 if ($this->Auth->login()) {
+                    //Si pas authorise
+                    if(($this->User->checkIfUserConfirmed($this->Auth->user('id'))) === FALSE)
+                    {
+                            $this->Session->setFlash(__('Note that you won\'t be able to make a reservation since you haven\'t confirmed your e-mail yet.'), 'flash/warning');
+                    }
                     return $this->redirect($this->Auth->redirectUrl());
                 }
                 $this->Flash->error(__('Invalid username or password, try again'));
@@ -69,6 +74,12 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
+                            $theUser = $this->User->find('first', array('conditions' => array('User.id' => $this->User->getLastInsertID())));
+                                $this->User->envoyerEmail
+                                        ($theUser['User']['username'], 
+                                        $theUser['User']['password'], 
+                                        $theUser['User']['email'], 
+                                        $theUser['User']['id']);
 				$this->Session->setFlash(__('The user has been saved'), 'flash/success');
 				$this->redirect(array('action' => 'login'));
 			} else {
@@ -150,6 +161,42 @@ class UsersController extends AppController {
                                 $this->redirect(array('action' => 'index'));
                             }
 	}
+        
+        public function activate($token)
+        {
+            //Si activation OK
+            if($this->User->activateMethod($token) === TRUE)
+            {
+                $this->Session->setFlash(__('Successfully activated your account. You can now make reservations.'), 'flash/success');
+                $this->redirect(array('action' => 'login'));
+            }
+            else
+            {
+                $this->Session->setFlash(__('Could not activate the account!'), 'flash/error');
+                $this->redirect(array('controller' => 'books','action' => 'index'));                
+            }
+        }
+        
+        //Pour re-envoyer
+        public function resend()
+        {
+            //Seulement si logged in et si pas déjà authentifé
+            if(!empty($this->Auth->user()) && !$this->User->checkIfUserConfirmed($this->Auth->user('id')))
+            {
+                $theUser = $this->User->find('first', array('conditions' => array('User.id' => $this->Auth->user('id'))));
+                $this->User->envoyerEmail
+                    ($theUser['User']['username'], $theUser['User']['password'], $theUser['User']['email'], $theUser['User']['id']);
+                $this->Session->setFlash(__('Confirmation e-mail has been sent'), 'flash/success');
+                $this->redirect(array('controller' => 'books','action' => 'index'));     
+            }
+            else
+            {
+                $this->Session->setFlash(__('You must be logged in to perform this action'), 'flash/error');
+                $this->redirect(array('controller' => 'books','action' => 'index'));        
+            }
+            
+
+    }
         
 
 }

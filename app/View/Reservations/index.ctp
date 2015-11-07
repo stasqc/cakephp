@@ -56,7 +56,12 @@
 					</tbody>
 				</table>
 			</div><!-- /.table-responsive -->
-			
+			<?php
+                            if(isset($notConfirmed))
+                            {
+                                echo $this->Html->link(__('Re-send confirmation e-mail'), array('controller' => 'users', 'action' => 'resend'));
+                            }
+                        ?>
 			<p><small>
 				<?php
 					echo $this->Paginator->counter(array(

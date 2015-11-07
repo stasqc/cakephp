@@ -137,5 +137,53 @@ class User extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+        //Vérifie si notre utilisateur a confirmé son compte par e-mail
+        public function checkIfUserConfirmed($userID = null)
+        {
+            $outcome = false;
+            if($userID != null)
+            {
+                $theUser = $this->find('first', array('conditions' => array('User.id' => $userID)));
+                if($theUser['User']['authorized'] == 1)
+                    $outcome = true;
+            }
+            return $outcome;
+        }
+        
+        //Envoi e-mail de confirmation à l'utilisateur
+        public function envoyerEmail($username, $password, $emailAd, $userid)
+        {
+            //On prepare link
+            $link = array('controller' => 'users', 'action' => 'activate', $userid.'-'.md5($password));
+            App::uses('CakeEmail', 'Network/Email');
+            $email = new CakeEmail('gmail');
+            $email->from('gererstages@gmail.com');
+            $email->to($emailAd);
+            $email->subject('Activation of account');
+            $email->emailFormat('html');
+            $email->template('default');
+            $email->viewVars(array('username'=> $username, 'link' => $link));
+            $email->send();
+        }
+        
+        //Réception de la confirmation et activation de l'usager
+        public function activateMethod($token)
+        {
+            $outcome = false;
+            $token = explode('-', $token);
+            $user = $this->find('first', array('conditions' => array('id' => $token[0], 'MD5(User.password)' => $token[1], 'authorized' => 0)));
+            //Si on l'a trouvé
+            if(!empty($user))
+            {
+                //Charger avec le résultat qu'on avait obtenu auparavant
+                $this->id = $user['User']['id'];
+                $this->saveField('authorized', 1);
+                $outcome = true;
+            }
+           //Si non, false
+            
+            return $outcome;
+        }
+
 
 }

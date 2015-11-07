@@ -58,7 +58,12 @@ class ReservationsController extends AppController {
                 }
                 
                 
-                
+                //Link pour re-envoyer e-mail de confirmation
+                $this->loadModel('User');
+                if(!$this->User->checkIfUserConfirmed($this->Auth->user('id')))
+                {
+                   $this->set('notConfirmed', ''); 
+                }
                 
                 
                 
@@ -91,7 +96,18 @@ class ReservationsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-                        
+                    //Verify if user is authorized
+                    $this->loadModel('User');
+                    if(($this->User->checkIfUserConfirmed($this->Auth->user('id'))) === FALSE)
+                    {
+                            $this->Session->setFlash(__('You must confirm your account using your e-mail before making a reservation!'), 'flash/error');
+                            $this->redirect(array('controller' => 'Books', 'action' => 'index'));
+                    }
+                    
+                    
+                    
+                    
+                    
                         $dateNow = date('Y-m-d');
                         $bookID = $this->request->data('bookID');
                         //À insérer la validation ici

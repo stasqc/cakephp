@@ -14,10 +14,11 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<?php
-$content = explode("\n", $content);
 
-foreach ($content as $line):
-	echo '<p> ' . $line . "</p>\n";
-endforeach;
-?>
+<p>
+    <strong>Hello <?php echo $username; ?></strong>
+</p>
+<p>To activate your account, please follow this link: </p>
+<p><?php echo $this->Html->link(_('Activate my account'), 
+        $this->Html->url($link, true));?></p>
+
