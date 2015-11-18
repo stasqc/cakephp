@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-10-05 18:25-0400\n"
+"PO-Revision-Date: 2015-11-17 21:00-0500\n"
 "Last-Translator: \n"
 "Language-Team: EMAIL@ADDRESS\n"
 "Language: fr_CA\n"
@@ -60,27 +60,27 @@ msgstr "La catégorie de livres a été supprimé"
 msgid "Books category was not deleted"
 msgstr "La catégorie de livres n'a pas pu être sauvegardé"
 
-#: Controller/BooksController.php:45;104;138
+#: Controller/BooksController.php:49;138;184
 msgid "Invalid book"
 msgstr "Livre non-valide"
 
-#: Controller/BooksController.php:63;108
+#: Controller/BooksController.php:78;149
 msgid "The book has been saved"
 msgstr "Le livre a été sauvegardé"
 
-#: Controller/BooksController.php:66;111
+#: Controller/BooksController.php:81;152
 msgid "The book could not be saved. Please, try again."
 msgstr "Le livre n'a pas pu être sauvegardé"
 
-#: Controller/BooksController.php:155
+#: Controller/BooksController.php:201
 msgid "Cannot delete book as it is currently reserved!"
 msgstr "Impossible de supprimer le livre car il est déjà reservé!"
 
-#: Controller/BooksController.php:161
+#: Controller/BooksController.php:207
 msgid "Book deleted"
 msgstr "Le livre a été supprimé"
 
-#: Controller/BooksController.php:164
+#: Controller/BooksController.php:210
 msgid "Book was not deleted"
 msgstr "Le livre n'a pas été supprimé"
 
@@ -129,87 +129,120 @@ msgstr "La catégorie a été supprimée"
 msgid "Category was not deleted"
 msgstr "La catégorie n'a pas été supprimée"
 
-#: Controller/CoversController.php:37;70;99
+#: Controller/CoversController.php:37;72;103
 msgid "Invalid cover"
 msgstr "Couverture non-valide"
 
-#: Controller/CoversController.php:52;74
+#: Controller/CoversController.php:52;76
 msgid "The cover has been saved"
 msgstr "La couverture a été sauvegardée"
 
-#: Controller/CoversController.php:55;77
+#: Controller/CoversController.php:55;79
 msgid "The cover could not be saved. Please, try again."
 msgstr "La couverture n'a pas pu être sauvegardée. Veuillez reéssayer"
 
-#: Controller/CoversController.php:116
+#: Controller/CoversController.php:120
 msgid "Cannot delete cover as there are associated books to it!"
 msgstr ""
 "Impossible de supprimer la couverture car il y a un livre qui lui est "
 "associé déjà"
 
-#: Controller/CoversController.php:122
+#: Controller/CoversController.php:126
 msgid "Cover deleted"
 msgstr "La couverture a été supprimée"
 
-#: Controller/CoversController.php:125
+#: Controller/CoversController.php:129
 msgid "Cover was not deleted"
 msgstr "La couverture n'a pas été supprimée"
 
-#: Controller/ReservationsController.php:81;188
+#: Controller/ReservationsController.php:86;204
 msgid "Invalid reservation"
 msgstr "Réservation non-valide"
 
-#: Controller/ReservationsController.php:112
+#: Controller/ReservationsController.php:103
+msgid ""
+"You must confirm your account using your e-mail before making a reservation!"
+msgstr ""
+"Vous devez confirmer votre compte en utilisant votre e-mail avant de faire "
+"une réservation!"
+
+#: Controller/ReservationsController.php:128
 msgid "The book is already reserved!"
 msgstr "Ce livre est déjà réservé!"
 
-#: Controller/ReservationsController.php:145
+#: Controller/ReservationsController.php:161
 msgid "The reservation has been saved."
 msgstr "La réservation a été sauvegardée."
 
-#: Controller/ReservationsController.php:150
+#: Controller/ReservationsController.php:166
 msgid "The reservation could not be saved. Please, try again."
 msgstr "La réservation n'a pas pu être sauvegardée"
 
-#: Controller/ReservationsController.php:162
+#: Controller/ReservationsController.php:178
 msgid "No book selected for reservation!"
 msgstr "Aucun livre choisi pour réservation!"
 
-#: Controller/ReservationsController.php:191
+#: Controller/ReservationsController.php:207
 msgid "Reservation deleted"
 msgstr "Réservation supprimée!"
 
-#: Controller/ReservationsController.php:194
+#: Controller/ReservationsController.php:210
 msgid "Reservation was not deleted"
 msgstr "La réservation n'a pas été supprimée"
 
-#: Controller/UsersController.php:30
+#: Controller/UsersController.php:33
+msgid ""
+"Note that you won't be able to make a reservation since you haven't "
+"confirmed your e-mail yet."
+msgstr ""
+"Veuillez noter que vous n'allez pas être capable de faire une réservation vu "
+"que vous n'avez pas confirmé votre compte."
+
+#: Controller/UsersController.php:37
 msgid "Invalid username or password, try again"
 msgstr "Mot de passe ou nom d'utilisateur invalide. Veuillez re-éssayer."
 
-#: Controller/UsersController.php:57;92;123
+#: Controller/UsersController.php:64;105;136
 msgid "Invalid user"
 msgstr "Utilisateur non-valide."
 
-#: Controller/UsersController.php:72;96
+#: Controller/UsersController.php:85;109
 msgid "The user has been saved"
 msgstr "Cet utilisateur a été sauvegardé."
 
-#: Controller/UsersController.php:75;99
+#: Controller/UsersController.php:88;112
 msgid "The user could not be saved. Please, try again."
 msgstr "L'utilisateur n'a pas pu être sauvegardé. Veuillez re-essayer"
 
-#: Controller/UsersController.php:140
+#: Controller/UsersController.php:153
 msgid "Cannot delete user as there are associated reservations with it!"
 msgstr "Impossible de supprimer l'usager car il a des réservations"
 
-#: Controller/UsersController.php:146
+#: Controller/UsersController.php:159
 msgid "User deleted"
 msgstr "L'utilisateur a été supprimé"
 
-#: Controller/UsersController.php:149
+#: Controller/UsersController.php:162
 msgid "User was not deleted"
 msgstr "L'utilisateur n'a pas été supprimé"
+
+#: Controller/UsersController.php:172
+msgid "Successfully activated your account. You can now make reservations."
+msgstr ""
+"Votre compte a été activé avec succès. Vous pouvez maintenant faire des "
+"réservations."
+
+#: Controller/UsersController.php:177
+msgid "Could not activate the account!"
+msgstr "Impossible d'activer le compte!"
+
+#: Controller/UsersController.php:191
+msgid "Confirmation e-mail has been sent"
+msgstr "Le courriel de confirmation a été envoyé"
+
+#: Controller/UsersController.php:196
+msgid "You must be logged in to perform this action"
+msgstr "Vous devez être authentifé pour faire ceci."
 
 #: Plugin/I18n/Controller/TranslationsController.php:146
 msgid "The translation has been saved"
@@ -275,10 +308,10 @@ msgstr ""
 
 #: Plugin/I18n/View/Translations/admin_edit.ctp:18
 #: Plugin/I18n/View/Translations/admin_index.ctp:70 View/Authors/index.ctp:30
-#: View/Authors/view.ctp:81 View/Books/index.ctp:54 View/Books/search.ctp:62
+#: View/Authors/view.ctp:81 View/Books/index.ctp:68 View/Books/search.ctp:74
 #: View/BooksUsers/edit.ctp:9 View/BooksUsers/index.ctp:49
 #: View/Categories/index.ctp:30 View/Categories/view.ctp:78
-#: View/Covers/index.ctp:26 View/Reservations/edit.ctp:9 View/Users/edit.ctp:9
+#: View/Covers/index.ctp:28 View/Reservations/edit.ctp:9 View/Users/edit.ctp:9
 #: View/Users/index.ctp:34 View/Users/view.ctp:108
 msgid "Delete"
 msgstr "Supprimer"
@@ -292,9 +325,9 @@ msgid "Translations"
 msgstr ""
 
 #: Plugin/I18n/View/Translations/admin_index.ctp:6 View/Authors/index.ctp:44
-#: View/Books/index.ctp:68 View/Books/search.ctp:76
+#: View/Books/index.ctp:82 View/Books/search.ctp:88
 #: View/BooksUsers/index.ctp:60 View/Categories/index.ctp:43
-#: View/Covers/index.ctp:37 View/Reservations/index.ctp:63
+#: View/Covers/index.ctp:39 View/Reservations/index.ctp:68
 #: View/Users/index.ctp:45
 msgid ""
 "Page {:page} of {:pages}, showing {:current} records out of {:count} total, "
@@ -329,26 +362,26 @@ msgid "Search"
 msgstr "Chercher"
 
 #: Plugin/I18n/View/Translations/admin_index.ctp:40 View/Authors/index.ctp:16
-#: View/Authors/view.ctp:63 View/Books/index.ctp:21 View/Books/search.ctp:29
+#: View/Authors/view.ctp:63 View/Books/index.ctp:22 View/Books/search.ctp:30
 #: View/BooksUsers/index.ctp:33 View/Categories/index.ctp:16
-#: View/Categories/view.ctp:61 View/Covers/index.ctp:16
+#: View/Categories/view.ctp:61 View/Covers/index.ctp:17
 #: View/Reservations/index.ctp:19 View/Users/index.ctp:20
 #: View/Users/view.ctp:90
 msgid "Actions"
 msgstr "Actions"
 
 #: Plugin/I18n/View/Translations/admin_index.ctp:67 View/Authors/index.ctp:24
-#: View/Authors/view.ctp:75 View/Books/index.ctp:47 View/Books/search.ctp:55
+#: View/Authors/view.ctp:75 View/Books/index.ctp:61 View/Books/search.ctp:67
 #: View/BooksUsers/index.ctp:47 View/Categories/index.ctp:24
-#: View/Categories/view.ctp:72 View/Covers/index.ctp:24 View/Users/index.ctp:32
+#: View/Categories/view.ctp:72 View/Covers/index.ctp:26 View/Users/index.ctp:32
 #: View/Users/view.ctp:106
 msgid "View"
 msgstr "Voir"
 
 #: Plugin/I18n/View/Translations/admin_index.ctp:68 View/Authors/index.ctp:28
-#: View/Authors/view.ctp:80 View/Books/index.ctp:52 View/Books/search.ctp:60
+#: View/Authors/view.ctp:80 View/Books/index.ctp:66 View/Books/search.ctp:72
 #: View/BooksUsers/index.ctp:48 View/Categories/index.ctp:28
-#: View/Categories/view.ctp:77 View/Covers/index.ctp:25 View/Users/index.ctp:33
+#: View/Categories/view.ctp:77 View/Covers/index.ctp:27 View/Users/index.ctp:33
 #: View/Users/view.ctp:107
 msgid "Edit"
 msgstr "Modifier"
@@ -401,26 +434,27 @@ msgstr "Modifier un auteur"
 
 #: View/Authors/index.ctp:9
 #: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:23
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:22
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:21
 #: View/Themed/Cakestrap/Elements/menu/topMenuUser.ctp:21
 msgid "Authors"
 msgstr "Auteurs"
 
-#: View/Authors/index.ctp:30 View/Authors/view.ctp:16 View/Books/view.ctp:20
-#: View/Categories/view.ctp:16 View/Covers/view.ctp:16
+#: View/Authors/index.ctp:30 View/Authors/view.ctp:16 View/Books/index.ctp:68
+#: View/Books/view.ctp:20 View/Categories/view.ctp:16 View/Covers/index.ctp:28
+#: View/Covers/view.ctp:16
 msgid "Are you sure you want to delete %s?"
 msgstr "Être-vous surs de vouloir supprimer %s?"
 
-#: View/Authors/index.ctp:51 View/Books/index.ctp:75 View/Books/search.ctp:83
+#: View/Authors/index.ctp:51 View/Books/index.ctp:89 View/Books/search.ctp:95
 #: View/BooksUsers/index.ctp:67 View/Categories/index.ctp:50
-#: View/Covers/index.ctp:44 View/Reservations/index.ctp:70
+#: View/Covers/index.ctp:46 View/Reservations/index.ctp:75
 #: View/Users/index.ctp:52
 msgid "Previous"
 msgstr "Précédent"
 
-#: View/Authors/index.ctp:53 View/Books/index.ctp:77 View/Books/search.ctp:85
+#: View/Authors/index.ctp:53 View/Books/index.ctp:91 View/Books/search.ctp:97
 #: View/BooksUsers/index.ctp:69 View/Categories/index.ctp:52
-#: View/Covers/index.ctp:46 View/Reservations/index.ctp:72
+#: View/Covers/index.ctp:48 View/Reservations/index.ctp:77
 #: View/Users/index.ctp:54
 msgid "Next"
 msgstr "Prochain"
@@ -441,11 +475,11 @@ msgstr "Supprimer cet auteur"
 msgid "List all authors"
 msgstr "Afficher tous les auteurs"
 
-#: View/Authors/view.ctp:33 View/Books/view.ctp:59
+#: View/Authors/view.ctp:33 View/Books/view.ctp:69
 msgid "Author"
 msgstr "Auteur"
 
-#: View/Authors/view.ctp:38 View/Books/view.ctp:86 View/Categories/view.ctp:38
+#: View/Authors/view.ctp:38 View/Books/view.ctp:96 View/Categories/view.ctp:38
 #: View/Users/view.ctp:46
 msgid "Name"
 msgstr "Nom"
@@ -454,11 +488,11 @@ msgstr "Nom"
 msgid "Related Books"
 msgstr "Livres reliés"
 
-#: View/Authors/view.ctp:60 View/Books/view.ctp:44 View/Categories/view.ctp:60
+#: View/Authors/view.ctp:60 View/Books/view.ctp:54 View/Categories/view.ctp:60
 msgid "ISBN"
 msgstr "ISBN"
 
-#: View/Authors/view.ctp:61 View/Books/view.ctp:49 View/Categories/view.ctp:61
+#: View/Authors/view.ctp:61 View/Books/view.ctp:59 View/Categories/view.ctp:61
 #: View/Reservations/index.ctp:15 View/Users/view.ctp:85
 msgid "Title"
 msgstr "Titre"
@@ -467,10 +501,9 @@ msgstr "Titre"
 msgid "DatePublication"
 msgstr "Date de publication"
 
-#: View/Authors/view.ctp:81 View/Books/index.ctp:54 View/Books/search.ctp:62
-#: View/BooksUsers/edit.ctp:9 View/BooksUsers/index.ctp:49
-#: View/BooksUsers/view.ctp:10 View/Categories/index.ctp:30
-#: View/Categories/view.ctp:78 View/Covers/index.ctp:26
+#: View/Authors/view.ctp:81 View/Books/search.ctp:74 View/BooksUsers/edit.ctp:9
+#: View/BooksUsers/index.ctp:49 View/BooksUsers/view.ctp:10
+#: View/Categories/index.ctp:30 View/Categories/view.ctp:78
 #: View/Reservations/edit.ctp:9 View/Reservations/view.ctp:10
 #: View/Users/edit.ctp:9 View/Users/index.ctp:34 View/Users/view.ctp:10;108
 msgid "Are you sure you want to delete # %s?"
@@ -486,11 +519,16 @@ msgstr "Modifier un livre"
 
 #: View/Books/index.ctp:9
 #: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:14
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:14;21
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:14
 #: View/Themed/Cakestrap/Elements/menu/topMenuUser.ctp:14
 #: View/Themed/Cakestrap/Elements/menu/top_menu.ctp:14
 msgid "Books"
 msgstr "Livres"
+
+#: View/Books/index.ctp:15 View/Books/search.ctp:23 View/Books/view.ctp:38
+#: View/BooksUsers/view.ctp:43
+msgid "Book"
+msgstr "Livre"
 
 #: View/Books/search.ctp:8
 msgid "Search for a book: "
@@ -516,26 +554,22 @@ msgstr "Supprimer ce livre"
 msgid "List all books"
 msgstr "Afficher tous les livres"
 
-#: View/Books/view.ctp:38 View/BooksUsers/view.ctp:43
-msgid "Book"
-msgstr "Livre"
-
-#: View/Books/view.ctp:54
+#: View/Books/view.ctp:64
 msgid "Date of publication"
 msgstr "Date de publication"
 
-#: View/Books/view.ctp:64 View/Covers/view.ctp:33
+#: View/Books/view.ctp:74 View/Covers/view.ctp:33
 msgid "Cover"
 msgstr "Couverture"
 
-#: View/Books/view.ctp:78 View/Categories/index.ctp:9
+#: View/Books/view.ctp:88 View/Categories/index.ctp:9
 #: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:32
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:23
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:22
 #: View/Themed/Cakestrap/Elements/menu/topMenuUser.ctp:22
 msgid "Categories"
 msgstr "Catégories"
 
-#: View/Books/view.ctp:120
+#: View/Books/view.ctp:130
 msgid "Reserve book"
 msgstr "Réserver un livre"
 
@@ -625,7 +659,7 @@ msgstr "Afficher toutes les catégories"
 msgid "Category"
 msgstr "Catégorie"
 
-#: View/Covers/add.ctp:8
+#: View/Covers/add.ctp:7
 msgid "Add Cover"
 msgstr "Rajouter couverture"
 
@@ -637,6 +671,10 @@ msgstr "Modifier couverture"
 #: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:40
 msgid "Covers"
 msgstr "Couverture"
+
+#: View/Covers/index.ctp:16
+msgid "General type"
+msgstr ""
 
 #: View/Covers/view.ctp:10
 msgid "This cover"
@@ -657,6 +695,10 @@ msgstr "Afficher toutes les couvertures"
 #: View/Covers/view.ctp:38 View/Users/view.ctp:61
 msgid "Type"
 msgstr "Type"
+
+#: View/Covers/view.ctp:43
+msgid "Overcover"
+msgstr ""
 
 #: View/Reservations/add.ctp:9 View/Reservations/edit.ctp:10
 #: View/Reservations/view.ctp:11
@@ -684,7 +726,7 @@ msgstr "Réservations"
 
 #: View/Reservations/index.ctp:16
 msgid "E-mail"
-msgstr ""
+msgstr "Courriel"
 
 #: View/Reservations/index.ctp:43 View/Reservations/view.ctp:10
 msgid "Delete Reservation"
@@ -693,6 +735,10 @@ msgstr "Supprimer la réservation"
 #: View/Reservations/index.ctp:43
 msgid "Are you sure you want to delete this reservation?"
 msgstr "Êtes-vous sur de vouloir supprimer cette réservation?"
+
+#: View/Reservations/index.ctp:62
+msgid "Re-send confirmation e-mail"
+msgstr "Re-envoyer le courriel de confirmation"
 
 #: View/Reservations/view.ctp:12
 msgid "New Reservation"
@@ -746,16 +792,22 @@ msgid "Logout"
 msgstr "Déconnextion"
 
 #: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:58
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:29
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:28
 #: View/Themed/Cakestrap/Elements/menu/topMenuUser.ctp:27
 msgid "Language"
 msgstr "Langue"
 
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:24
+#: View/Themed/Cakestrap/Elements/menu/topMenuAdmin.ctp:67
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:37
+#: View/Themed/Cakestrap/Elements/menu/topMenuUser.ctp:36
+msgid "About"
+msgstr "À propos"
+
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:23
 msgid "Register"
 msgstr "S'Enregistrer"
 
-#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:25
+#: View/Themed/Cakestrap/Elements/menu/topMenuNotLogged.ctp:24
 #: View/Themed/Cakestrap/Elements/menu/top_menu.ctp:49 View/Users/login.ctp:13
 msgid "Login"
 msgstr "S'Authentifier"
@@ -852,6 +904,22 @@ msgstr "Donnez un titre"
 msgid "Enter a valid publication date."
 msgstr "Donnez une date de publication valide"
 
+#: Model/Book.php:validation for field filename
+msgid "Something went wrong with the file upload"
+msgstr ""
+
+#: Model/Book.php:validation for field filename
+msgid "Invalid file, only jpeg/jpg allowed!"
+msgstr ""
+
+#: Model/Book.php:validation for field filename
+msgid "Article image must be less then 1MB"
+msgstr ""
+
+#: Model/Book.php:validation for field filename
+msgid "Something went wrong while processing your file"
+msgstr ""
+
 #: Model/Category.php:validation for field name
 msgid "Your custom message here"
 msgstr ""
@@ -859,10 +927,6 @@ msgstr ""
 #: Model/Cover.php:validation for field type
 msgid "A cover cannot be blank."
 msgstr "Donnez un nom valide pour la couverture"
-
-#: Model/Cover.php:validation for field type
-msgid "Only alphanumeric characters allowed"
-msgstr "Seulement des lettres et des chiffres"
 
 #: Model/Reservation.php:validation for field dateTaken;validation
 #: dateDue;validation dateReturned
@@ -937,539 +1001,5 @@ msgstr ""
 msgid "Please enter a Field"
 msgstr ""
 
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:41
-msgid "-> Testing :url"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:67
-msgid "Total Requests made: :requests"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:68
-msgid "Total Time elapsed: :duration (seconds)"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:72
-msgid "Requests/Second: :rps req/sec"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:76
-msgid "Average request time: :average-time seconds"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:80
-msgid "Standard deviation of average request time: :std-dev"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:84
-msgid "Longest/shortest request: :longest sec/:shortest sec"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:134
-msgid ""
-"Allows you to obtain some rough benchmarking statisticsabout a fully "
-"qualified URL."
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:139
-msgid "The URL to request."
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:144
-msgid "Number of iterations to perform."
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:148
-msgid ""
-"Maximum total time for all iterations, in seconds.If a single iteration "
-"takes more than the timeout, only one request will be made"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/BenchmarkShell.php:152
-msgid ""
-"Example Use: `cake benchmark --n 10 --t 100 http://localhost/testsite`. "
-"<info>Note:</info> this benchmark does not include browser render times."
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:159
-msgid "Component initialization"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:281
-msgid "Controller action"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:284
-msgid "Controller action start"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:304
-msgid "Processing toolbar state"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:327
-msgid "Processing toolbar data"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:362
-msgid "Controller render start"
-msgstr ""
-
-#: Plugin/DebugKit/Controller/Component/ToolbarComponent.php:446
-msgid "Could not load DebugToolbar panel %s"
-msgstr ""
-
-#: Plugin/DebugKit/Lib/DebugTimer.php:128
-msgid "Core Processing (Derived from $_SERVER[\"REQUEST_TIME\"])"
-msgstr ""
-
-#: Plugin/DebugKit/Lib/FireCake.php:310
-msgid "Headers already sent in %s on line %s. Cannot send log data to FirePHP."
-msgstr ""
-
-#: Plugin/DebugKit/Lib/FireCake.php:331
-msgid "Incorrect parameter count for FireCake::fb()"
-msgstr ""
-
-#: Plugin/DebugKit/Lib/FireCake.php:410
-msgid "Maximum number (99,999) of messages reached!"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/debug_toolbar.ctp:23
-msgid "There are no active panels. You must enable a panel to see its output."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/environment_panel.ctp:20
-msgid "App Constants"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/environment_panel.ctp:36
-msgid "CakePHP Constants"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/environment_panel.ctp:52
-msgid "PHP Environment"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/environment_panel.ctp:70
-msgid "Hidef Environment"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/history_panel.ctp:19
-msgid "Request History"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/history_panel.ctp:21
-msgid "No previous requests logged."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/history_panel.ctp:23
-msgid "previous requests available"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/history_panel.ctp:25
-msgid "Restore to current request"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/include_panel.ctp:19
-msgid "Included Files"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/log_panel.ctp:19
-msgid "Logs"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/log_panel.ctp:27
-msgid "Time"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/log_panel.ctp:27
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:42;66
-msgid "Message"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/log_panel.ctp:38
-msgid "There were no log entries made this request"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/request_panel.ctp:19
-msgid "Request"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/request_panel.ctp:27
-msgid "No post data."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/request_panel.ctp:36
-msgid "No querystring data."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/request_panel.ctp:49
-msgid "Current Route"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/session_panel.ctp:19
-msgid "Session"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:24
-msgid "Sql Logs"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:39
-msgid "No query logs when debug < 2."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:41
-msgid "No query logs."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:58
-msgid "Total Time: %s ms <br />Total Queries: %s queries"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:67
-msgid "%s duplicate queries run."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:70
-msgid "Query Explain:"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:73
-msgid "Click an \"Explain\" link above, to see the query explanation."
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/sql_log_panel.ctp:79
-msgid "No active database connections"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:35
-msgid "Memory"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:38
-msgid "Peak Memory Use"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:42
-msgid "Memory use"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:55
-msgid "Timers"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:57
-msgid "%s (ms)"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:58
-msgid "Total Request Time:"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:67
-msgid "Time in ms"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/timer_panel.ctp:68
-msgid "Graph"
-msgstr ""
-
-#: Plugin/DebugKit/View/Elements/variables_panel.ctp:19
-msgid "View Variables"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/DebugTimerHelper.php:45
-msgid "Rendering View"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/DebugTimerHelper.php:60
-msgid "Rendering %s"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/DebugTimerHelper.php:86
-msgid "View render complete"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/HtmlToolbarHelper.php:230
-msgid "Explain"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/SimpleGraphHelper.php:80
-msgid "Starting %sms into the request, taking %sms"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/TidyHelper.php:99
-msgid "No markup errors found"
-msgstr ""
-
-#: Plugin/DebugKit/View/Helper/ToolbarHelper.php:190
-msgid "maybe slow"
-msgstr ""
-
-#: Plugin/DebugKit/Console/Command/WhitespaceShell.php:90
-msgid "Absolute path or relative to APP."
-msgstr ""
-
-#: View/Errors/error400.ctp:19 View/Errors/error500.ctp:19
-msgid "Error"
-msgstr ""
-
-#: View/Errors/error400.ctp:21
-msgid "The requested address %s was not found on this server."
-msgstr ""
-
-#: View/Errors/error500.ctp:20
-msgid "An Internal Error Has Occurred."
-msgstr ""
-
-#: View/Layouts/default.ctp:17 View/Layouts/error.ctp:17
-msgid "CakePHP: the rapid development php framework"
-msgstr ""
-
-#: View/Layouts/default.ctp:18
-msgid "CakePHP %s"
-msgstr ""
-
-#: View/Pages/home.ctp:14
-msgid "Release Notes for CakePHP %s."
-msgstr ""
-
-#: View/Pages/home.ctp:16
-msgid "Read the changelog"
-msgstr ""
-
-#: View/Pages/home.ctp:25
-msgid "URL rewriting is not properly configured on your server."
-msgstr ""
-
-#: View/Pages/home.ctp:34
-msgid "Your version of PHP is 5.2.8 or higher."
-msgstr ""
-
-#: View/Pages/home.ctp:38
-msgid ""
-"Your version of PHP is too low. You need PHP 5.2.8 or higher to use CakePHP."
-msgstr ""
-
-#: View/Pages/home.ctp:47
-msgid "Your tmp directory is writable."
-msgstr ""
-
-#: View/Pages/home.ctp:51
-msgid "Your tmp directory is NOT writable."
-msgstr ""
-
-#: View/Pages/home.ctp:61
-msgid "The %s is being used for core caching. To change the config edit %s"
-msgstr ""
-
-#: View/Pages/home.ctp:65
-msgid "Your cache is NOT working. Please check the settings in %s"
-msgstr ""
-
-#: View/Pages/home.ctp:75
-msgid "Your database configuration file is present."
-msgstr ""
-
-#: View/Pages/home.ctp:80
-msgid "Your database configuration file is NOT present."
-msgstr ""
-
-#: View/Pages/home.ctp:82
-msgid "Rename %s to %s"
-msgstr ""
-
-#: View/Pages/home.ctp:107
-msgid "CakePHP is able to connect to the database."
-msgstr ""
-
-#: View/Pages/home.ctp:111
-msgid "CakePHP is NOT able to connect to the database."
-msgstr ""
-
-#: View/Pages/home.ctp:124
-msgid "PCRE has not been compiled with Unicode support."
-msgstr ""
-
-#: View/Pages/home.ctp:126
-msgid ""
-"Recompile PCRE with Unicode support by adding <code>--enable-unicode-"
-"properties</code> when configuring"
-msgstr ""
-
-#: View/Pages/home.ctp:135
-msgid "DebugKit plugin is present"
-msgstr ""
-
-#: View/Pages/home.ctp:139
-msgid ""
-"DebugKit is not installed. It will help you inspect and debug different "
-"aspects of your application."
-msgstr ""
-
-#: View/Pages/home.ctp:141
-msgid "You can install it from %s"
-msgstr ""
-
-#: View/Pages/home.ctp:147
-msgid "Editing this Page"
-msgstr ""
-
-#: View/Pages/home.ctp:150
-msgid ""
-"To change the content of this page, edit: %s.<br />\n"
-"To change its layout, edit: %s.<br />\n"
-"You can also add some CSS styles for your pages at: %s."
-msgstr ""
-
-#: View/Pages/home.ctp:157
-msgid "Getting Started"
-msgstr ""
-
-#: View/Pages/home.ctp:161
-msgid "New"
-msgstr ""
-
-#: View/Pages/home.ctp:161
-msgid "CakePHP 2.0 Docs"
-msgstr ""
-
-#: View/Pages/home.ctp:170
-msgid "The 15 min Blog Tutorial"
-msgstr ""
-
-#: View/Pages/home.ctp:177
-msgid "Official Plugins"
-msgstr ""
-
-#: View/Pages/home.ctp:182
-msgid ""
-"provides a debugging toolbar and enhanced debugging tools for CakePHP "
-"applications."
-msgstr ""
-
-#: View/Pages/home.ctp:186
-msgid ""
-"contains various localized validation classes and translations for specific "
-"countries"
-msgstr ""
-
-#: View/Pages/home.ctp:191
-msgid "More about CakePHP"
-msgstr ""
-
-#: View/Pages/home.ctp:193
-msgid ""
-"CakePHP is a rapid development framework for PHP which uses commonly known "
-"design patterns like Active Record, Association Data Mapping, Front "
-"Controller and MVC."
-msgstr ""
-
-#: View/Pages/home.ctp:196
-msgid ""
-"Our primary goal is to provide a structured framework that enables PHP users "
-"at all levels to rapidly develop robust web applications, without any loss "
-"to flexibility."
-msgstr ""
-
-#: View/Pages/home.ctp:201
-msgid "The Rapid Development Framework"
-msgstr ""
-
-#: View/Pages/home.ctp:202
-msgid "CakePHP Documentation"
-msgstr ""
-
-#: View/Pages/home.ctp:203
-msgid "Your Rapid Development Cookbook"
-msgstr ""
-
-#: View/Pages/home.ctp:204
-msgid "CakePHP API"
-msgstr ""
-
-#: View/Pages/home.ctp:205
-msgid "Quick API Reference"
-msgstr ""
-
-#: View/Pages/home.ctp:206
-msgid "The Bakery"
-msgstr ""
-
-#: View/Pages/home.ctp:207
-msgid "Everything CakePHP"
-msgstr ""
-
-#: View/Pages/home.ctp:208
-msgid "CakePHP Plugins"
-msgstr ""
-
-#: View/Pages/home.ctp:209
-msgid "A comprehensive list of all CakePHP plugins created by the community"
-msgstr ""
-
-#: View/Pages/home.ctp:210
-msgid "CakePHP Community Center"
-msgstr ""
-
-#: View/Pages/home.ctp:211
-msgid "Everything related to the CakePHP community in one place"
-msgstr ""
-
-#: View/Pages/home.ctp:212
-msgid "CakePHP Google Group"
-msgstr ""
-
-#: View/Pages/home.ctp:213
-msgid "Community mailing list"
-msgstr ""
-
-#: View/Pages/home.ctp:215
-msgid "Live chat about CakePHP"
-msgstr ""
-
-#: View/Pages/home.ctp:216
-msgid "CakePHP Code"
-msgstr ""
-
-#: View/Pages/home.ctp:217
-msgid "Find the CakePHP code on GitHub and contribute to the framework"
-msgstr ""
-
-#: View/Pages/home.ctp:218;219
-msgid "CakePHP Issues"
-msgstr ""
-
-#: View/Pages/home.ctp:220;221
-msgid "CakePHP Roadmaps"
-msgstr ""
-
-#: View/Pages/home.ctp:222
-msgid "Training"
-msgstr ""
-
-#: View/Pages/home.ctp:223
-msgid "Join a live session and get skilled with the framework"
-msgstr ""
-
-#: View/Pages/home.ctp:224
-msgid "CakeFest"
-msgstr ""
-
-#: View/Pages/home.ctp:225
-msgid "Don't miss our annual CakePHP conference"
-msgstr ""
-
-#: View/Pages/home.ctp:226
-msgid "Cake Software Foundation"
-msgstr ""
-
-#: View/Pages/home.ctp:227
-msgid "Promoting development related to CakePHP"
-msgstr ""
-
-#: webroot/test.php:103
-msgid "Debug setting does not allow access to this url."
-msgstr ""
+#~ msgid "Only alphanumeric characters allowed"
+#~ msgstr "Seulement des lettres et des chiffres"

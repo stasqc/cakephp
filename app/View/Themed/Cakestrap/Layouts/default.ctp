@@ -48,6 +48,9 @@
 	<body>
 
 		<div id="main-container">
+                    <?php
+                        echo $this->Html->image('svg/rotated-book2.svg', array('height' => 50, 'width' => 200));
+                    ?>
 		
 			<div id="header" class="container">
 				<?php 
