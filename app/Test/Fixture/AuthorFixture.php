@@ -25,8 +25,28 @@ class AuthorFixture extends CakeTestFixture {
  */
 	public $records = array(
 		array(
-			'id' => 1,
-			'name' => 'Lorem ipsum dolor sit amet'
+			'id' => '1',
+			'name' => 'JRR Tolkien'
+		),
+		array(
+			'id' => '3',
+			'name' => 'George RR Martin'
+		),
+		array(
+			'id' => '4',
+			'name' => 'J. K. Rowling'
+		),
+		array(
+			'id' => '5',
+			'name' => 'Suzanne Collins'
+		),
+		array(
+			'id' => '6',
+			'name' => 'Ernest Hemingway'
+		),
+		array(
+			'id' => '7',
+			'name' => 'Stephen King'
 		),
 	);
 
