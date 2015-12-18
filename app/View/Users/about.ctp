@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -12,7 +18,7 @@
    id="svg3336"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="rotated-book2.svg">
+   sodipodi:docname="rotated-book2a.svg">
   <metadata
      id="metadata3361">
     <rdf:RDF>
@@ -41,7 +47,7 @@
      id="namedview3357"
      showgrid="false"
      inkscape:zoom="1.1677626"
-     inkscape:cx="400.1893"
+     inkscape:cx="301.28221"
      inkscape:cy="143.97555"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -136,8 +142,7 @@
        x="369.9382"
        y="109.39724"
        style="font-size:60px;letter-spacing:1px"
-       dx="0.15000001">BIBLIOTHECA</tspan>
-  </text>
+       dx="0.15000001">BIBLIOTHECA</tspan></text>
   <flowRoot
      xml:space="preserve"
      id="flowRoot3367"
@@ -148,7 +153,7 @@
          height="46.242275"
          x="421.31851"
          y="20.338037" /></flowRegion><flowPara
-       id="flowPara3373"></flowPara></flowRoot>  <path
+       id="flowPara3373" /></flowRoot>  <path
      sodipodi:type="star"
      id="etoileRouge"
      sodipodi:sides="5"
@@ -165,13 +170,25 @@
      inkscape:transform-center-x="3.1780607"
      inkscape:transform-center-y="-0.30592444"
      style="fill:#ff0000" />
-       
-       <script type="text/ecmascript">
+  <ellipse
+     style="fill:#000080"
+     id="ElipseBleu"
+     cx="360.51849"
+     cy="38.321148"
+     rx="29.115507"
+     ry="11.1324" />
+
+  
+         <script type="text/ecmascript">
        <![CDATA[
        frame = 20;
        direction = 1;
        function laFonction()
        {
+           ellipse = document.getElementById("ElipseBleu");
+           ellipse.setAttribute("cx", frame+500);
+       
+       
            etoile = document.getElementById("etoileRouge");
            texte = document.getElementById("textBiblio");
            etoile.setAttribute("opacity", frame/100);
@@ -193,9 +210,10 @@
        
        ]]>
        </script>
-       
-       
 </svg>
+
+
+
 
 
 <h3>Stanislav</h3>
