@@ -112,22 +112,27 @@ class Book extends AppModel {
 				'rule' => 'uploadError',
 				'message' => 'Something went wrong with the file upload',
 				'allowEmpty' => TRUE,
+                                'required' => FALSE
 			),
 			'mimeType' => array(
 				'rule' => array('mimeType', array('image/jpg','image/jpeg')),
 				'message' => 'Invalid file, only jpeg/jpg allowed!',
+                                'required' => FALSE,
 				'allowEmpty' => TRUE,
 			),
                          'filesize' => array(
                             'rule' => array('filesize', '<=', '1MB'),
                             'message' => 'Article image must be less then 1MB',
+                            'required'=> FALSE,
                             'allowEmpty' => TRUE,
                         ),
 			// notre méthode à nous
 			'processImageUpload' => array(
 				'rule' => 'processImageUpload',
 				'message' => 'Something went wrong while processing your file',
-				'allowEmpty' => TRUE
+				'allowEmpty' => TRUE,
+                                'required' => FALSE,
+                                'last' => TRUE
 			))
 	);
 
@@ -190,19 +195,19 @@ class Book extends AppModel {
 	);
         
     public function processImageUpload($check=array()) {
-//    debug($check); die();
+
 	// deal with uploaded file
 	if (!empty($check['filename']['tmp_name'])) {
-
+    
 		// check file is uploaded
 		if (!is_uploaded_file($check['filename']['tmp_name'])) {
-
+                    debug($check); die();
 			return FALSE;
 		}
 
 		// build full filename
 		$filename = WWW_ROOT . 'img' . DS . 'uploads'. DS . $check['filename']['name'];
-
+                
 		// @todo check for duplicate filename
 
 		// try moving file
@@ -215,10 +220,48 @@ class Book extends AppModel {
 			$this->data[$this->alias]['filename'] = 'uploads' . '/' . $check['filename']['name'];
 		}
 	}
+        
 
-	return TRUE;
+        return TRUE;
 }
-    
+
+        //Rajout de beforeValidate pour être capable de tester avec un fichier vide
+    	public function beforeValidate($options = array()) {
+		// ignore empty file - causes issues with form validation when file is empty and optional
+		if (!empty($this->data[$this->alias]['filename']['error']) && $this->data[$this->alias]['filename']['error']==4 && $this->data[$this->alias]['filename']['size']==0) {
+			unset($this->data[$this->alias]['filename']);
+		}
+
+		return parent::beforeValidate($options);
+	}
+        
+        //Rajout de beforeSave si non le test ne marche pas
+//	public function beforeSave($options = array()) {
+//		// a file has been uploaded so grab the filepath
+//		if (!empty($this->data[$this->alias]['filepath'])) {
+//			$this->data[$this->alias]['filename'] = $this->data[$this->alias]['filepath'];
+//		}
+//		
+//		return parent::beforeSave($options);
+//	}
+        
+        //Méthodes pour permettre le testing
+        	/**
+	 * Wrapper method for 'is_uploaded_file' to allow testing
+	 * @param string $tmp_name
+	 */
+	public function is_uploaded_file($tmp_name) {
+		return is_uploaded_file($tmp_name);
+	}
+
+	/**
+	 * Wrapper method for 'move_uploaded_file' to allow testing
+	 * @param string $from
+	 * @param string $to
+	 */
+	public function move_uploaded_file($from, $to) {
+		return move_uploaded_file($from, $to);
+	}
     
 
 }
