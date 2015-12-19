@@ -43,9 +43,51 @@ class BookTest extends CakeTestCase {
 		parent::tearDown();
 	}
 
-        //À faire - isOwnedBy??
+        //À la place de isOwnedBy - 
+        //
+        //-------------------------------------------------------------
+        //------------ Tests pour les extractions de LISTE LIÉS
+        //On utilise getAuthorName(int id) et getAuthorID(string name)
+        //Dans les deux cas, on couvre la possibilité de aucun argument
+        //et un argument, ce qui couvre entièrement la méthode dans le
+        //modèle.
+        //-------------------------------------------------------------
+        //
+        public function __construct($name = NULL, array $data = array(), $dataName = '') {
+        parent::__construct($name, $data, $dataName);
+    }
+ 
+        public function testGetAuthorIDNomValide()
+        {
+            $id = $this->Book->getAuthorID("George RR Martin");
+            $this->assertEqual($id, "3");
+        }
         
-        //------------ Tests pour les extractions
+        
+        public function testGetAuthorIDNomVide()
+        {
+            $id = $this->Book->getAuthorID("");
+            $this->assertFalse($id);
+        }
+        
+        
+        public function testGetAuthorNameIDValide()
+        {
+            $name = $this->Book->getAuthorName("5");
+            $this->assertEqual($name, "Suzanne Collins");
+        }
+        
+        public function testGeteAuthorNameIDVide()
+        {
+            $name = $this->Book->getAuthorName();
+            $this->assertFalse($name);
+        }
+        
+        //
+        //-------------------------------------------------------------
+        //------------ Tests pour les extractions de AUTOCOMPLETE
+        //On utilise getAuthorNames(string pattern)
+        //-------------------------------------------------------------
         
         public function testGetAuthorNamesUneLettreExistante()
         {
@@ -72,7 +114,9 @@ class BookTest extends CakeTestCase {
             $this->assertEqual($testAuthorNames, null);
         }
         
-        //------------ Test pour 3 choses qui ne sont pas correctes
+        //-------------------------------------------------------------
+        //------------ Test pour 3 propriétés qui ne sont pas correctes
+        //--------------------------------------------------------------
         public function testMauvaisISBN()
         {
             //On construit data (pour sauvegarder)
@@ -126,9 +170,9 @@ class BookTest extends CakeTestCase {
         }
         
 
-        
+        //---------------------------------------------------
         //---- Tests de validation pour les images
-        
+        //---------------------------------------------------
         //On va donner un livre qui est correcte  (image vide)
         public function testSaveBookValidEmptyImage()
         {
@@ -189,7 +233,7 @@ class BookTest extends CakeTestCase {
             //Avec ma version de php, il faut cast
             $result = (array)$result;        
             //Tester si insertion OK
-            print_r($result);
+            //print_r($result);
             $this->assertArrayHasKey('Book', $result);
             
             //Tester si dans BD

@@ -226,35 +226,41 @@
 
 <h3>Pour vérifier les exigences du TP3:</h3>
 <ol>
-    <li>Vérifier github: voir github.com/stasqc/cakephp</li>
-    <li>Vérifier la base de données SQLite: Le site web l'utilise présentement (ajout pas possible vu que SqLite)</li>
-    <li>Listes liés avec AJAX: aller pour rajouter un livre, Dans covers Choisir Overcover(Hard/Soft) pour avoir (Hardcover, Libary binding ou Softcover, Mass market paperback)</li>
-    <li>Autocomplete: lors du rajout du livre, le nom de l'auteur se fait en autocomplete</li>
-    <li>Image SVG comme logo: en haut à gauche</li>
-    <li>Image SVG avec mouvement:
+    <li><b>Vérifier github:</b> voir github.com/stasqc/cakephp</li><br/>
+    <li><b>Base de données SQLite:</b> Le site web l'utilise présentement. Le fichier default.sqlite est binaire (contient les mêmes données et tables qu'avant)</li><br/>
+    <li><b>Autocomplete avec JQuery:</b> lors du rajout du livre, le nom de l'auteur se fait en autocomplete</li><br/>
+    <li><b>Image SVG comme logo:</b> en haut à gauche, nom du fichier rotated-book2a.svg</li><br/>
+    <li><b>Image SVG avec mouvement:</b> 
             <ol>
-                <li>L'étoile rouge change de couleur (de rouge à blanc à rouge)</li>
+                <li>L'étoile rouge change de couleur (de rouge à blanc à rouge, fade in et fade out)</li>
                 <li>L'éllipse bleue bouge de gauche à droite (en haut du texte)</li>
             </ol>
-    </li>
-    <li>Tests sur autoComplete, voir les méthodes suivantes: 
+    </li><br/>
+    <li><b>Tests sur l'extraction pour les listes et ensuite pour autoComplete, voir les méthodes suivantes</b> : 
             <ol>
-                <li>testGetAuthorNamesUneLettreExistante</li>
-                <li>testGetAuthorNamesUneLettreNonExistante</li>
-                <li>testGetAuthorNamesDeuxLettresExistantes</li>
-                <li>testGetAuthorParametresVides</li>
-            </ol>
-    </li>
-    <li>Tests téléversement et validation: 
+                <li>testGetAuthorIDNomValide()</li>
+                <li>testGetAuthorIDNomVide()</li>
+                <li>testGetAuthorNameIDValide()</li>
+                <li>testGetAuthorNameIDVide()</li>
+            </ol><br/>
             <ol>
-                <li>testMauvaisISBN</li>
-                <li>testMauvaiseDate</li>
-                <li>testSaveBookValidEmptyImage</li>
-                <li>testSaveBookValidNoImage</li>
-                <li>testFormWithInvalidFile</li>
-                <li>testFormWithValidFile en commentaire</li>
+                <li>testGetAuthorNamesUneLettreExistante()</li>
+                <li>testGetAuthorNamesUneLettreNonExistante()</li>
+                <li>testGetAuthorNamesDeuxLettresExistantes()</li>
+                <li>testGetAuthorParametresVides()</li>
             </ol>
-    </li>
+    </li><br/>
+    <li><b>Tests téléversement et validation</b> : 
+            <ol>
+                <li>testSaveBookValidEmptyImage()</li>
+                <li>testSaveBookValidNoImage()</li>
+                <li>testFormWithInvalidFile()</li>
+                <li>testFormWithValidFile en commentaire()</li><br/>
+                <li>testMauvaisISBN() - valider ISBN, on donne un invalide </li>
+                <li>testMauvaiseDate() - valider la Date, on done une date invalide</li>
+                <li>testMauvaisTitre() - valider le titre, on donne un titre invalide</li>
+            </ol>
+    </li><br/>
 </ol>
 
 

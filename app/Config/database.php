@@ -66,7 +66,7 @@
  * flags =>
  * A key/value array of driver specific connection options.
  */
-define('DEFAULT_DB', APP.DS.'sqlite'.DS.'default.db');
+define('DEFAULT_DB', APP.DS.'sqlite'.DS.'default.sqlite');
 class DATABASE_CONFIG {
 
 //	public $default = array(
