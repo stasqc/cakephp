@@ -66,18 +66,30 @@
  * flags =>
  * A key/value array of driver specific connection options.
  */
+define('DEFAULT_DB', APP.DS.'sqlite'.DS.'default.db');
 class DATABASE_CONFIG {
 
-	public $default = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'mysql',
-		'database' => 'thelibrary',
-		'prefix' => '',
-		'encoding' => 'utf8',
-	);
+//	public $default = array(
+//		'datasource' => 'Database/Mysql',
+//		'persistent' => false,
+//		'host' => 'localhost',
+//		'login' => 'root',
+//		'password' => 'mysql',
+//		'database' => 'thelibrary',
+//		'prefix' => '',
+//		'encoding' => 'utf8',
+//	);
+    
+    
+
+
+        public $default = array(
+        'datasource' => 'Database/Sqlite',
+        'persistent' => false,
+        'database' => DEFAULT_DB,
+        'prefix' => '',
+        //'encoding' =&gt; 'utf8',
+    );
 
 	public $test = array(
 		'datasource' => 'Database/Mysql',

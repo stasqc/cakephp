@@ -201,7 +201,7 @@ class Book extends AppModel {
     
 		// check file is uploaded
 		if (!is_uploaded_file($check['filename']['tmp_name'])) {
-                    debug($check); die();
+                    //debug($check); die();
 			return FALSE;
 		}
 

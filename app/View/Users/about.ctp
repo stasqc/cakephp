@@ -224,6 +224,45 @@
     Automne 2015, Collège Montmorency
 </p>
 
+<h3>Pour vérifier les exigences du TP3:</h3>
+<ol>
+    <li>Vérifier github: voir github.com/stasqc/cakephp</li>
+    <li>Vérifier la base de données SQLite: Le site web l'utilise présentement (ajout pas possible vu que SqLite)</li>
+    <li>Listes liés avec AJAX: aller pour rajouter un livre, Dans covers Choisir Overcover(Hard/Soft) pour avoir (Hardcover, Libary binding ou Softcover, Mass market paperback)</li>
+    <li>Autocomplete: lors du rajout du livre, le nom de l'auteur se fait en autocomplete</li>
+    <li>Image SVG comme logo: en haut à gauche</li>
+    <li>Image SVG avec mouvement:
+            <ol>
+                <li>L'étoile rouge change de couleur (de rouge à blanc à rouge)</li>
+                <li>L'éllipse bleue bouge de gauche à droite (en haut du texte)</li>
+            </ol>
+    </li>
+    <li>Tests sur autoComplete, voir les méthodes suivantes: 
+            <ol>
+                <li>testGetAuthorNamesUneLettreExistante</li>
+                <li>testGetAuthorNamesUneLettreNonExistante</li>
+                <li>testGetAuthorNamesDeuxLettresExistantes</li>
+                <li>testGetAuthorParametresVides</li>
+            </ol>
+    </li>
+    <li>Tests téléversement et validation: 
+            <ol>
+                <li>testMauvaisISBN</li>
+                <li>testMauvaiseDate</li>
+                <li>testSaveBookValidEmptyImage</li>
+                <li>testSaveBookValidNoImage</li>
+                <li>testFormWithInvalidFile</li>
+                <li>testFormWithValidFile en commentaire</li>
+            </ol>
+    </li>
+</ol>
+
+
+
+
+
+
+
 <h3>Pour vérifier les exigences du TP2:</h3>
 <ol>
     <li>Vérifier github: voir github.com/stasqc/cakephp</li>
